@@ -1,0 +1,70 @@
+<style>
+    <%- include ../../public/stylesheets/style.css %>
+</style>
+<% if (session.user.role === 'headmaster') { %>
+    <div class="container">
+        <p align='center'>
+        <a href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Teachers</button>
+            <div class="dropdown-content">
+                <a href="/teachers"> Show Teacher </a>
+                <a href="/teachers/add"> Add Teacher </a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Subjects</button>
+            <div class="dropdown-content">
+                <a href="/subjects"> Show Subject </a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Students</button>
+            <div class="dropdown-content">
+                <a href="/students"> Show Students </a>
+                <a href="/students/add"> Add Student </a>
+            </div>
+        </div>
+        <a href="/logout">Log Out</a>
+        </p> 
+    </div>
+<% } else if (session.user.role === 'academic') { %>
+    <div class="container">
+        <p align='center'>
+        <a href="/">Home</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Subjects</button>
+            <div class="dropdown-content">
+                <a href="/subjects"> Show Subject </a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Students</button>
+            <div class="dropdown-content">
+                <a href="/students"> Show Students </a>
+                <a href="/students/add"> Add Student </a>
+            </div>
+        </div>
+        <a href="/logout">Log Out</a>
+        </p> 
+    </div>
+<% } else if (session.user.role === 'teacher') { %>
+    <div class="container">
+        <p align='center'>
+        <a href="/">Home</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Students</button>
+            <div class="dropdown-content">
+                <a href="/students"> Show Students </a>
+                <a href="/students/add"> Add Student </a>
+            </div>
+        </div>
+        <a href="/logout">Log Out</a>
+        </p> 
+    </div>
+<% } %>

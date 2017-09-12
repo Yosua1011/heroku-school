@@ -1,0 +1,30 @@
+{
+  "name": "sequelize-task",
+  "version": "1.0.0",
+  "description": "This is the repo for sequelize task from Hacktiv8",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yosua1011/sequelize-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yosua1011/sequelize-task/issues"
+  },
+  "homepage": "https://github.com/Yosua1011/sequelize-task#readme",
+  "dependencies": {
+    "body-parser": "^1.18.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "pg": "^7.3.0",
+    "sequelize": "^4.8.3",
+    "sequelize-cli": "^3.0.0-2",
+    "sqlite3": "^3.1.10"
+  },
+  "devDependencies": {}
+}

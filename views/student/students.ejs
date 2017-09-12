@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br>
+    <h2>Students Data</h2>
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+        <th>Options</th>
+      </tr>
+      <% data_students.forEach((row, index) => { %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%=row.first_name%></td>
+        <td><%=row.last_name%></td>
+        <td><%=row.get_full_name()%></td>
+        <td><%=row.email%></td>
+        <td>
+          <a href="/students/<%=row.id%>/addsubject">Add Subject</a>
+        </td>
+        <td>
+            <a href="/students/edit/<%=row.id%>">EDIT</a>
+            <a href="/students/delete/<%=row.id%>" onclick="return confirm(' delete this student?')">DELETE</a>
+        </td>      
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

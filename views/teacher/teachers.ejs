@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br>
+    <h2>Teachers Data</h2>
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Options</th>
+      </tr>
+      <% data_teachers.forEach((row, index) => { %>
+      <tr>
+        <td><%=index+1%></td>
+        <td><%=row.first_name%></td>
+        <td><%=row.last_name%></td>
+        <td><%=row.email%></td>
+        <td>
+          <% if (row.SubjectId!==null) {%>
+            <%=row.Subject.subject_name%>
+          <%} else {%>
+            unassigned
+          <%}%>
+      </td>
+        <td>
+          <a href="/teachers/edit/<%=row.id%>">EDIT</a> |
+          <a href="/teachers/delete/<%=row.id%>">DELETE</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <br></br>
+    <a href="/teachers/add"> Add Teacher </a>
+  </body>
+</html>

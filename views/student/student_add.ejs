@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br><br>
+    <%if (data_error === true) { %>
+      <font color="red">VALIDATION ERROR, EMAIL FORMAT IS INCORRECT. IT BELONGS TO SOMEONE ELSE</font>
+    <% } %>
+    <br><br>
+    <form class="" action="/students/add" method="POST">
+    <p> First Name
+        <br>
+      <input type="text" name="first_name" value="" placeholder="First Name">
+    </p>
+    <p> Last Name
+        <br>
+      <input type="text" name="last_name" value="" placeholder="Last Name">
+    </p>
+    <p> Email
+        <br>
+      <input type="email" name="email" value="<%=data.email%>" placeholder="your@email.com">
+    </p>
+      <input type="submit" value="Save">
+    </form>
+  </body>
+</html>

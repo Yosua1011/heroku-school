@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br><br>
+    <form class="" action="/teachers/add" method="POST">
+      <p>First Name
+        <br>
+        <input type="text" name="first_name" value="" placeholder="first_name">
+      </p>
+      <p>
+        Last Name
+        <br>
+        <input type="text" name="last_name" value="" placeholder="last_name">
+      </p>
+      <p>
+        Email
+        <br>
+        <input type="email" name="email" value="" placeholder="email">
+      </p>
+      <p>
+        <select class="" name="SubjectId">
+          <% data_subjects.forEach(row => { %>
+          <option value="<%=row.id%>"><%=row.subject_name%></option>
+          <% }) %>
+        </select>
+      </p>
+
+      <input type="submit" value="SAVE">
+    </form>
+
+  </body>
+</html>

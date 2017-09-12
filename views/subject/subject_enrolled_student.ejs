@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ../partial/head %>
+<body>
+    <%- include ../partial/menubar %>
+    <br><br>
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>Score By Number</td>
+            <td>Score By Letter</td>
+        </tr>
+            <% data_subjects.Students.forEach(row => { %>
+        <tr>
+            <td><%= row.first_name + ' ' + row.last_name%></td>
+            <td>
+                <% if(row.SubjectStudent.score !== null) {%>
+                    <%= row.SubjectStudent.score%>
+                <% } else { %>
+                    <a href="#">Give Score</a>
+                <% } %>
+            </td>
+            <td>
+                <%= row.scoreLetter %>
+            </td>
+        </tr>
+           <% }) %>
+    </table>
+</body>
+</html>

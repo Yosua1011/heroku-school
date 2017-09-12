@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br>
+    <h2>Subjects Data</h2>
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Subject's Name</th>
+        <th>Teacher's Name</th>
+        <th>Action</th>
+      </tr>
+      <% data_subjects.forEach(row => { %>
+      <tr>
+        <td><%=row.id%></td>
+        <td><%=row.subject_name%></td>
+        <td>
+          <% if(row.Teachers.length > 0) { %>
+            <% row.Teachers.forEach((teacher, index) => { %>
+              <%= (index+1) + '. ' + teacher.first_name + ' ' + teacher.last_name%>
+              <br></br>
+            <% }) %>
+            <% } else { %>
+              -
+          <% } %>
+        </td>
+        <td>
+          <a href="/subjects/<%=row.id%>/enrolledstudents">Enrolled Students</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

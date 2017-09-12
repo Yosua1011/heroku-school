@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ../partial/head %>
+<body>
+    <%- include ../partial/menubar %>
+    <br><br>
+    <p>Student Name : <%= data_conjunction[0].Student.first_name + ' ' + data_conjunction[0].Student.last_name%></p>
+    <p>Subject : <%= data_conjunction[0].Subject.subject_name%></p>
+    <p>
+        Score: <br>
+        <form class="" action="/subjects/<%= data_conjunction[0].id %>/givescore" method="POST">
+            <input type="number" name="score" value="" placeholder="type score">
+            <input type="submit" name="" value="Add Score">
+        </form>
+    </p>
+</body>
+</html>
