@@ -14,7 +14,7 @@ router.get('/', (req, res)=>{
 //Login
 
 router.get('/login', (req, res) => {
-  res.render('login', {title: 'Login', msg: ''})
+  res.render('login', {title: 'Login', error_login: false})
 })
 
 router.post('/login', (req, res) => {
@@ -36,11 +36,11 @@ router.post('/login', (req, res) => {
         }
         res.redirect('/')
       } else {
-        res.render('login', {title: 'login', msg: 'Username or Password Not Correct'})
+        res.render('login', {title: 'login', error_login: true})
       }
     })
     .catch(err => {
-      res.render('login', {title: 'login', msg: 'Username or Password Not Correct'})
+      res.render('login', {title: 'login', error_login: true})
     })
 })
 
