@@ -7,7 +7,7 @@ router.use((req, res, next) => {
     if(req.session.hasLogin && req.session.user.role !== 'teacher' ){
         next()
     } else {
-        res.render('accessDenied', {title: 'ACCESS DENIED'})
+        res.render('accessDenied', {title: 'ACCESS DENIED', session: req.session})
     }
   })
 
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
         ]
     })
     .then(data_subjects => {
-        res.render('subject/subjects', {data_subjects: data_subjects, title: 'Subjects'})
+        res.render('subject/subjects', {data_subjects: data_subjects, title: 'Subjects', session: req.session})
     })
     .catch(err => {
         console.log(err)
@@ -42,7 +42,7 @@ router.get('/:id/enrolledstudents', (req,res) => {
                 student.scoreLetter = scoreLetter(student.SubjectStudent.score)
                 count++
                 if(count >= data_subjects[0].Students.length) {
-                    res.render('subject/subject_enrolled_student', {data_subjects: data_subjects[0], title: "Student's Score"})
+                    res.render('subject/subject_enrolled_student', {data_subjects: data_subjects[0], title: "Student's Score", session: req.session})
                 }
             })
         } else {
@@ -66,7 +66,7 @@ router.get('/:id/givescore', (req,res) => {
         ]
     })
     .then(data_conjunction => {
-        res.render('subject/give_score', {data_conjunction: data_conjunction, title: 'Give Score'})
+        res.render('subject/give_score', {data_conjunction: data_conjunction, title: 'Give Score', session: req.session})
     })
     .catch(err => {
         console.log(err)

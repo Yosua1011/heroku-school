@@ -17,7 +17,7 @@
                 <% if(row.SubjectStudent.score !== null) {%>
                     <%= row.SubjectStudent.score%>
                 <% } else { %>
-                    <a href="#">Give Score</a>
+                    <a href="/subjects/<%= row.SubjectStudent.id%>/givescore">Give Score</a>
                 <% } %>
             </td>
             <td>
